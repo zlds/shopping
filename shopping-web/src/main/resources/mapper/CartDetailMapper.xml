@@ -13,4 +13,8 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
   </resultMap>
+
+    <select id="selectByCartId" resultType="com.example.client.domain.CartDetail">
+        select * from cart_detail where cart_id = #{cartId}
+    </select>
 </mapper>

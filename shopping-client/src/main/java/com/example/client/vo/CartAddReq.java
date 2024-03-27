@@ -8,13 +8,13 @@ import lombok.Data;
  * @description:
  */
 @Data
-public class CartReq {
+public class CartAddReq {
 
 
 	/**
 	 * 商品id
 	 */
-	private Integer productId;
+	private String productId;
 
 	/**
 	 * 商品数量

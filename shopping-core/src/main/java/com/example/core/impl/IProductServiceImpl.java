@@ -12,6 +12,7 @@ import com.example.core.dao.ProductMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.List;
  * @date 2023/12/11
  * @description:
  */
-
+@Service
 public class IProductServiceImpl implements IProductService {
 
 	@Autowired

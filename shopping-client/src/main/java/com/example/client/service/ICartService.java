@@ -2,7 +2,7 @@ package com.example.client.service;
 
 import com.example.client.common.Result;
 import com.example.client.vo.CartListResp;
-import com.example.client.vo.CartReq;
+import com.example.client.vo.CartAddReq;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public interface ICartService {
 	/**
 	 * 新增购物车
 	 */
-	Result<Void> addCart(CartReq req);
+	Result<Void> addCart(CartAddReq req);
 
 	/**
 	 * 删除购物车
@@ -27,5 +27,5 @@ public interface ICartService {
 	/**
 	 * 查询购物车
 	 */
-	Result<List<CartListResp>> queryCart(String userId);
+	Result<List<CartListResp>> queryCart();
 }
