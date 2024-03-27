@@ -1,17 +1,17 @@
 package com.example.client.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import javax.persistence.Table;
 
 /**
  * 评价表
  * @author: hanchaowei
- * @date 2024/2/15
+ * @date 2023/12/11
  * @description:
  */
-@Table(name = "t_reviews")
+@TableName("t_reviews")
 @Data
 public class Review extends Base {
     /**

@@ -1,19 +1,19 @@
 package com.example.client.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import javax.persistence.Table;
 
 /**
  * 订单表
  * @author: hanchaowei
- * @date 2024/2/15
+ * @date 2023/12/11
  * @description:
  */
-@Table(name = "t_orders")
+@TableName("t_order")
 @Data
-public class Orders extends Base {
+public class Order extends Base {
     /**
      * 主键ID(订单ID)
      */

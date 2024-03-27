@@ -6,23 +6,23 @@ import lombok.Data;
 
 
 /**
- * 订单明细表
+ * 购物车明细表
  * @author: hanchaowei
  * @date 2023/12/11
  * @description:
  */
-@TableName("t_order_detail")
+@TableName("t_cart_detail")
 @Data
-public class OrderDetail extends Base {
+public class CartDetail extends Base {
     /**
      * 主键
      */
     private String id;
 
     /**
-     * 订单ID
+     * 关联购物车ID
      */
-    private String orderId;
+    private String cartId;
 
     /**
      * 商品ID
@@ -30,18 +30,25 @@ public class OrderDetail extends Base {
     private String productId;
 
     /**
-     * 商品价格
+     * 商品名称
+     */
+    private String productName;
+
+    /**
+     * 单价
      */
     private Long price;
 
     /**
-     * 商品数量
+     * 数量
      */
     private Integer quantity;
 
     /**
-     * 商品折扣
+     * 金额
      */
-    private Integer discount;
+    private Long totalAmount;
+
+
 
 }

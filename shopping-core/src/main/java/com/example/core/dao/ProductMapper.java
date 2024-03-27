@@ -1,18 +1,18 @@
 package com.example.core.dao;
 
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.client.domain.Product;
 import com.example.client.vo.ProductInfoResp;
 import com.example.client.vo.SearchDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
 
 /**
  * @author: hanchaowei
- * @date 2024/3/16
+ * @date 2023/12/11
  * @description:
  */
 @Mapper

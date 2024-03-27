@@ -1,18 +1,18 @@
 package com.example.client.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * 轮播图商品列表
  * @author: hanchaowei
- * @date 2024/2/15
+ * @date 2023/12/11
  * @description:
  */
-@Table(name = "t_carousel_items")
+@TableName("t_carousel_items")
 @Data
 public class CarouselItem extends Base {
 

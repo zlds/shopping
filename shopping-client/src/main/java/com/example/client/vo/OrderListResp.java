@@ -21,6 +21,11 @@ public class OrderListResp {
 	private String orderNo;
 
 	/**
+	 * 订单创建时间
+	 */
+	private String orderTime;
+
+	/**
 	 * 店铺名称
 	 */
 	private String shopName;
@@ -38,7 +43,7 @@ public class OrderListResp {
 	/**
 	 * 购买数量
 	 */
-	private Integer productQuantity;
+	private Integer productNum;
 
 	/**
 	 * 金额
@@ -48,7 +53,7 @@ public class OrderListResp {
 	/**
 	 * 商品图片
 	 */
-	private String productIcon;
+	private String productPicture;
 
 	/**
 	 * 订单总金额

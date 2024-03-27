@@ -2,19 +2,21 @@ package com.example.core.dao;
 
 
 
-import com.example.client.domain.Orders;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.client.domain.Order;
 import com.example.client.vo.OrderListResp;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
 
 /**
-* Created by Generator 2024-03-15 17:06
-*/
+ * @author: hanchaowei
+ * @date 2023/12/11
+ * @description:
+ */
 @Mapper
-public interface OrdersMapper extends BaseMapper<Orders> {
+public interface OrderMapper extends BaseMapper<Order> {
 
 	/**
 	 * 根据订单状态查询订单列表

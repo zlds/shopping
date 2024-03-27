@@ -1,8 +1,8 @@
 package com.example.client.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import javax.persistence.Table;
 
 /**
  * 用户地址表
@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * @date 2023/12/11
  * @description:
  */
-@Table(name = "t_user")
+@TableName("t_user")
 @Data
 public class User extends Base {
     /**

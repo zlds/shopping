@@ -1,19 +1,19 @@
 package com.example.client.domain;
 
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
-import javax.persistence.Table;
 
 /**
  * 分类表
  * @author: hanchaowei
- * @date 2024/2/15
+ * @date 2023/12/11
  * @description:
  */
-@Table(name = "t_categories")
+@TableName("t_category")
 @Data
-public class Categories {
+public class Category {
 
 	/**
 	 * 主键
