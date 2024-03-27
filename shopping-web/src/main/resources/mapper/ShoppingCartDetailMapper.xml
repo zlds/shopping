@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.core.dao.ShoppingCartDetailMapper">
+  <resultMap id="BaseResultMap" type="com.example.client.domain.ShoppingCartDetail">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="cart_id" jdbcType="VARCHAR" property="cartId" />
+    <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="total_amount" jdbcType="BIGINT" property="totalAmount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+  </resultMap>
+</mapper>

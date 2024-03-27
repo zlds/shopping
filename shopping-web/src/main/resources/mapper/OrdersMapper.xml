@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.core.dao.OrdersMapper">
+  <resultMap id="BaseResultMap" type="com.example.client.domain.Orders">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="total_amount" jdbcType="BIGINT" property="totalAmount" />
+    <result column="actual_payment" jdbcType="BIGINT" property="actualPayment" />
+    <result column="channel" jdbcType="INTEGER" property="channel" />
+    <result column="pay_status" jdbcType="INTEGER" property="payStatus" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+  </resultMap>
+
+    <select id="selectByOrderStatus" resultType="com.example.client.vo.OrderListResp">
+        SELECT
+            o.id,
+            o.order_no AS orderNo,
+            o.total_amount AS orderAmount,
+            o.STATUS AS orderStatus,
+            o.pay_status AS payStatus,
+            p.NAME AS productName,
+            d.price AS productPrice,
+            d.quantity AS productQuantity,
+            d.price * d.quantity AS productAmount,
+            ( SELECT pi.pic_path FROM t_product_images pi WHERE pi.product_id = p.id LIMIT 1 ) AS productIcon
+        FROM
+            t_orders o
+            JOIN t_order_details d ON o.id = d.order_id
+            JOIN t_products p ON d.product_id = p.id
+        WHERE
+            o.user_id =  #{userId} and o.STATUS = #{orderStatus}
+
+        ORDER BY
+            o.create_time DESC
+    </select>
+</mapper>

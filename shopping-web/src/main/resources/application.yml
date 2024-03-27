@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  tomcat:
+    max-threads: 1000
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+mapper:
+  not-empty: false
+  identity: MYSQL
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    cache-enabled: false
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+    local-cache-scope: statement
+    multiple-result-sets-enabled: true
+    use-column-label: true
+    default-statement-timeout: 25000
+    map-underscore-to-camel-case: true
+    use-generated-keys: false
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  config:

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.core.dao.ProductMapper">
+    <resultMap id="BaseResultMap" type="com.example.client.domain.Product">
+        <id column="id" jdbcType="VARCHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="price" jdbcType="BIGINT" property="price" />
+        <result column="discount_price" jdbcType="BIGINT" property="discountPrice" />
+        <result column="stock" jdbcType="INTEGER" property="stock" />
+        <result column="category_id" jdbcType="VARCHAR" property="categoryId" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="sales_quantity" jdbcType="INTEGER" property="salesQuantity" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="delete_flag" jdbcType="TINYINT" property="deleteFlag" />
+        <result column="description" jdbcType="LONGVARCHAR" property="description" />
+    </resultMap>
+
+
+    <select id="searchByProductName" resultType="com.example.client.vo.SearchDTO">
+        SELECT t1.id
+               t1.name
+               t2.id       AS productType,
+               t1.price    AS price,
+               t3.pic_path AS productImg
+        FROM t_products AS t1
+                 LEFT JOIN t_categories AS t2 ON t1.category_id = t2.id
+                 LEFT JOIN t_product_images AS t3 ON t1.id = t3.product_id
+        WHERE t1.name LIKE CONCAT('%', #{productName}, '%')
+        GROUP BY t1.id
+
+    </select>
+
+    <select id="selectProductDetailById" resultType="com.example.client.vo.ProductInfoResp">
+        SELECT t1.id,
+               t1.name,
+               t1.price,
+               t1.discount_price,
+               t1.stock,
+               t1.category_id,
+               t1.status,
+               t1.sales_quantity,
+               t1.create_time,
+               t1.update_time,
+               t1.delete_flag,
+               t1.description,
+               t2.pic_path AS productImg,
+               t3.content as comment
+        FROM t_products AS t1
+        LEFT JOIN t_product_images AS t2 ON t1.id = t2.product_id
+        LEFT JOIN t_reviews AS t3 ON t1.id = t3.product_id
+        WHERE t1.id = #{productId}
+    </select>
+
+
+
+</mapper>
